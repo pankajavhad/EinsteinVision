@@ -120,7 +120,7 @@ var AppDataService = (function () {
     };
     AppDataService.prototype.getCountries = function () {
         return this.http
-            .get('http://localhost:5000/pics');
+            .get('/pics');
     };
     AppDataService.prototype.getCountry = function (id) {
         var country = this.countries.find(function (c) { return c.id == id; });

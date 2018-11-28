@@ -43,7 +43,7 @@ export class AppDataService {
 
   getCountries() {
     return this.http
-    .get('http://localhost:5000/pics');
+    .get('/pics');
   }
 
   getCountry(id: number) : Observable<Country> {
