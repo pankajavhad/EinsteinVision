@@ -7,7 +7,7 @@ function createServer() {
   const app                 = express();
   const multipartMiddleware = multipart();
 
-  app.use(express.static(__dirname + '/../filedrop-ui/build'));
+  app.use(express.static(__dirname + '/../filedrop-ui/dist'));
 
   app.post('/file-upload', multipartMiddleware, fileUpload);
 
