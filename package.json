@@ -16,8 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node middleware-api/run-app",
-    "heroku-postbuild": "cd filedrop-ui/ && npm install -g -f angular-cli && npm install && ng build"
+    "start": "node middleware-api/run-app"
   },
   "repository": {
     "type": "git",
