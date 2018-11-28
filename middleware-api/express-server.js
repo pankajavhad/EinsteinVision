@@ -1,7 +1,7 @@
 const express     = require('express');
 const multipart   = require('connect-multiparty');
 const fileUpload  = require('./file-upload');
-
+let jsonData = require('./data.json');
 
 function createServer() {
   const app                 = express();
@@ -11,9 +11,23 @@ function createServer() {
 
   app.post('/file-upload', multipartMiddleware, fileUpload);
 
+  app.get("/pics", function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.status(200).send(jsonData);
+  });
+
   app.use(logErrors);
   app.use(clientErrorHandler);
   app.use(errorHandler);
+
+  app.use(function(req, res, next) { //allow cross origin requests
+    res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
+    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Credentials", true);
+    next();
+});
 
   return app;
 }
