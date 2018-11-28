@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Country } from '../../view-models/Country';
+// import { Country } from '../../view-models/Country';
 
 @Component({
   selector: 'app-country-panel',
@@ -9,7 +9,7 @@ import { Country } from '../../view-models/Country';
 })
 export class CountryPanelComponent implements OnInit {
 
-  @Input() country: Country;
+  @Input() country: any;
   @Input() index = 1;
 
   constructor() { }
