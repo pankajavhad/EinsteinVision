@@ -21,7 +21,7 @@ function fileUpload(request, response, next) {
   let fileData = base64_encode(filePath);
 
   var tmp_path = filePath;
-  var target_path = './filedrop-ui/src/assets/' + request.files.file.name;
+  var target_path = './filedrop-ui/dist/assets/' + request.files.file.name;
 //   fs.writeFile(target_path, tmp_path, function (err) {
 //     if (err) throw err;
 //     });
