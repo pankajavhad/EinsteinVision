@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit{
   constructor(private http: Http) { }
 
   
-  public uploader:FileUploader = new FileUploader({url:'http://localhost:5000/file-upload'});
+  public uploader:FileUploader = new FileUploader({url:'/file-upload'});
   ngOnInit (){
     this.uploader.onSuccessItem = (item:FileItem, response:string, status:number, 
       headers:ParsedResponseHeaders) => 

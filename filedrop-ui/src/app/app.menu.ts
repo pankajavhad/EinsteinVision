@@ -8,7 +8,7 @@ export let initialMenuItems: Array<MenuItem> = [
         submenu: null
     },
     {
-        text: 'Countries',
+        text: 'Beaches',
         icon: 'glyphicon-flag',
         route: null,
         submenu: [
@@ -38,7 +38,7 @@ export let initialMenuItems: Array<MenuItem> = [
         route: null,
         submenu: [
             {
-                text: 'Country Maint',
+                text: 'Beach Maint',
                 icon: 'glyphicon-th-list',
                 route: 'authenticated/country-maint',
                 submenu: null
