@@ -549,7 +549,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var DashboardComponent = (function () {
     function DashboardComponent(http) {
         this.http = http;
-        this.uploader = new __WEBPACK_IMPORTED_MODULE_2_ng2_file_upload__["FileUploader"]({ url: 'http://localhost:5000/file-upload' });
+        this.uploader = new __WEBPACK_IMPORTED_MODULE_2_ng2_file_upload__["FileUploader"]({ url: '/file-upload' });
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -865,7 +865,7 @@ var initialMenuItems = [
         submenu: null
     },
     {
-        text: 'Countries',
+        text: 'Beaches',
         icon: 'glyphicon-flag',
         route: null,
         submenu: [
@@ -895,7 +895,7 @@ var initialMenuItems = [
         route: null,
         submenu: [
             {
-                text: 'Country Maint',
+                text: 'Beach Maint',
                 icon: 'glyphicon-th-list',
                 route: 'authenticated/country-maint',
                 submenu: null
@@ -2307,21 +2307,21 @@ module.exports = "<fw-framework-body>\n</fw-framework-body>\n"
 /***/ 862:
 /***/ function(module, exports) {
 
-module.exports = "<h3>Country</h3>\n\n<fw-dynamic-form\n  [vm]=\"country\"\n  [vmDefinition]=\"countryDefinition\"\n  [operation]=\"operation\"\n  [errorMessage]=\"errorMessage\"\n  (update)=\"updateCountry($event)\"\n  (create)=\"createCountry($event)\"\n>\n</fw-dynamic-form>\n"
+module.exports = "<h3>Beaches</h3>\n\n<fw-dynamic-form\n  [vm]=\"country\"\n  [vmDefinition]=\"countryDefinition\"\n  [operation]=\"operation\"\n  [errorMessage]=\"errorMessage\"\n  (update)=\"updateCountry($event)\"\n  (create)=\"createCountry($event)\"\n>\n</fw-dynamic-form>\n"
 
 /***/ },
 
 /***/ 863:
 /***/ function(module, exports) {
 
-module.exports = "\n<fw-panel *ngFor=\"let country of countries; let i=index\">\n  <div class=\"projected-title\">Country</div>\n  <app-country-panel [country]=\"country\" [index]=\"i+1\">\n  </app-country-panel>\n</fw-panel>"
+module.exports = "\n<fw-panel *ngFor=\"let country of countries; let i=index\">\n  <div class=\"projected-title\">Beaches</div>\n  <app-country-panel [country]=\"country\" [index]=\"i+1\">\n  </app-country-panel>\n</fw-panel>"
 
 /***/ },
 
 /***/ 864:
 /***/ function(module, exports) {
 
-module.exports = "<h3>Country Maintenance</h3>\n<button class=\"btn btn-primary\" (click)=\"createCountry()\">Add New Country</button>\n<table>\n  <thead>\n  <tr>\n    <th style=\"width: 25px\">Id</th>\n    <th style=\"width: 200px\">Country</th>\n    <th style=\"width: 70px\">EPI Index</th>\n    <th style=\"min-width: 100px\"></th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let row of countries\">\n    <td>{{ row.id }}</td>\n    <td>{{ row.name }}</td>\n    <td>{{ row.epiIndex }}</td>\n    <td *ngIf=\"row.id != deleteId\">\n      <button class=\"btn btn-sm btn-primary\"\n        (click)=\"showCountryDetail(row.id)\">\n          Details\n      </button>\n      <button class=\"btn btn-sm btn-warning\"\n        (click)=\"editCountry(row.id)\">\n          Edit\n      </button>\n      <button class=\"btn btn-sm btn-danger\"\n        (click)=\"deleteCountryQuestion(row.id)\">\n          Delete\n      </button>\n    </td>\n    <td *ngIf=\"row.id === deleteId && !isDeleting\">\n      Delete this country?\n      <button class=\"btn btn-sm\" (click)=\"cancelDelete()\">Cancel</button>\n      <button class=\"btn btn-sm btn-danger\" (click)=\"deleteCountry(row.id)\">Delete</button>\n      <p *ngIf=\"deleteError\">{{ deleteError }}</p>\n    </td>\n    <td *ngIf=\"row.id === deleteId && isDeleting\">\n      Deleting...\n    </td>\n  </tr>\n  </tbody>\n</table>"
+module.exports = "<h3>Beach Maintenance</h3>\n<button class=\"btn btn-primary\" (click)=\"createCountry()\">Add New Beach</button>\n<table>\n  <thead>\n  <tr>\n    <th style=\"width: 25px\">Id</th>\n    <th style=\"width: 200px\">Beach</th>\n    <th style=\"width: 70px\">EPI Index</th>\n    <th style=\"min-width: 100px\"></th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let row of countries\">\n    <td>{{ row.id }}</td>\n    <td>{{ row.name }}</td>\n    <td>{{ row.epiIndex }}</td>\n    <td *ngIf=\"row.id != deleteId\">\n      <button class=\"btn btn-sm btn-primary\"\n        (click)=\"showCountryDetail(row.id)\">\n          Details\n      </button>\n      <button class=\"btn btn-sm btn-warning\"\n        (click)=\"editCountry(row.id)\">\n          Edit\n      </button>\n      <button class=\"btn btn-sm btn-danger\"\n        (click)=\"deleteCountryQuestion(row.id)\">\n          Delete\n      </button>\n    </td>\n    <td *ngIf=\"row.id === deleteId && !isDeleting\">\n      Delete this country?\n      <button class=\"btn btn-sm\" (click)=\"cancelDelete()\">Cancel</button>\n      <button class=\"btn btn-sm btn-danger\" (click)=\"deleteCountry(row.id)\">Delete</button>\n      <p *ngIf=\"deleteError\">{{ deleteError }}</p>\n    </td>\n    <td *ngIf=\"row.id === deleteId && isDeleting\">\n      Deleting...\n    </td>\n  </tr>\n  </tbody>\n</table>"
 
 /***/ },
 
