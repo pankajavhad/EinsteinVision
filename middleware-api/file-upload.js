@@ -22,13 +22,21 @@ function fileUpload(request, response, next) {
 
   var tmp_path = filePath;
   var target_path = './filedrop-ui/src/assets/' + request.files.file.name;
-  fs.rename(tmp_path, target_path, function(err) {
-      if (err) throw err;
-      fs.unlink(tmp_path, function() {
-          if (err) throw err;
-        //   res.send('File uploaded to: ' + target_path);
-      });
-  });
+//   fs.writeFile(target_path, tmp_path, function (err) {
+//     if (err) throw err;
+//     });
+    fs.copyFile(tmp_path, target_path, (err) => {
+        if (err) throw err;
+        console.log('source.txt was copied to destination.txt');
+    });  
+
+//   fs.rename(tmp_path, target_path, function(err) {
+//       if (err) throw err;
+//       fs.unlink(tmp_path, function() {
+//           if (err) throw err;
+//         //   res.send('File uploaded to: ' + target_path);
+//       });
+//   });
   return Episode7.run(sendImageToVisionApi,
                pvsUrl,
                fileData,
@@ -53,8 +61,14 @@ function fileUpload(request, response, next) {
         newPrediction.name = fileName;
         newPrediction.epiIndex = JSON.parse(predictions).probabilities.find(o => o.label === 'Beaches').probability.toFixed(2);
         jsonData.push(newPrediction);
-        let data = JSON.stringify(jsonData);  
-        fs.writeFileSync('./middleware-api/data.json', data);  
+        let newData = JSON.stringify(jsonData);  
+        // fs.writeFileSync('./middleware-api/data.json', data);
+
+
+        fs.writeFile('./middleware-api/data.json', newData, function (err) {
+            if (err) throw err;
+        });
+
 
     })
     .catch( error => next(error));
